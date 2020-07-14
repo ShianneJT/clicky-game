@@ -9,8 +9,9 @@ import characters from './characters.json';
 class App extends React.Component {
     state = {
         characters,
-        correctGuesses: 0,
-        topScore: 0,
+        score: 0,
+        highScore: 0,
+        clickMessage: 'Click an image to gain a point! But don\'t click the same image twice or you lose!'
     };
 
     handleImgClick = id => {
@@ -19,11 +20,22 @@ class App extends React.Component {
             if (clickedImg[0].clicked) {
                 console.log('Already clicked that one!');
                 this.setState({
-                    correctGuesses: 0,
+                    score: 0,
+                    clickMessage: 'Sorry, you already clicked that one! Please try again.'
                 });
+            this.handleGameReset();
+
+            } else {
+                clickedImg[0].clicked = true;
+                this.setState({ score: this.state.score + 1}, () => {
+                    if(this.state.score > this.state.highScore) {
+                        this.setState({ highScore: this.state.score });
+                }
+            });
+                this.setState({clickMessage: 'Good job! Keep going!'})
                 this.handleCardShuffle();
             }
-            this.handleCardShuffle();
+
     }
 
     handleCardShuffle = () => {
@@ -38,34 +50,21 @@ class App extends React.Component {
             this.setState({ characters: cards });
     };
 
-
-    // handleImgClick = id => {
-    //     // check if clicked is false
-    //     // if so, set to true
-    //     // add point
-    //     // shuffle cards
-
-    //     // if clicked
-    //     // set top score
-    //     // reset everything
-
-    //     const clickedCharacter = this.state.characters.filter(characters => characters.id === id);
-    //         if(clickedCharacter[0].clicked) {
-
-    //         }
-    // }
-
-
-
-    // handle click
-    // handle card shuffle
-    // reset states
-
+    handleGameReset = () => {
+        for (let i = 0; i < this.state.characters.length; i++) {
+            characters[i].clicked = false;
+            this.setState({
+                score: 0,
+                characters: characters
+            });
+            this.handleCardShuffle();
+        };
+    };
 
     render() {
         return (
             <Wrapper>
-                <Header score={this.state.correctGuesses} topScore={this.state.topScore}/>
+                <Header score={this.state.score} highScore={this.state.highScore} clickMessage={this.state.clickMessage}/>
                 <div className="row">
                     {this.state.characters.map((character) => {
                         return <CharacterCard

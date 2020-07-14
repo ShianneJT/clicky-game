@@ -6,6 +6,9 @@ class Header extends React.Component {
         return (
             <div className="jumbotron">
                 <h1>Clicky Game!</h1>
+                <p>Score: {this.props.score}</p>
+                <p>High Score: {this.props.highScore}</p>
+                <p>{this.props.clickMessage}</p>
             </div>
         )
     }
