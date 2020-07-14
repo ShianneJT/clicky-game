@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "image": "/images/img1.jpg",
+        "alt": "Batman"
+    },
+    {
+        "id": 2,
+        "image": "/images/img2.jpg",
+        "alt": "Nightwing"
+    },
+    {
+        "id": 3,
+        "image": "/images/img3.jpg",
+        "alt": "Robin"
+    },
+    {
+        "id": 4,
+        "image": "/images/img4.jpg",
+        "alt": "Catwoman"
+    },
+    {
+        "id": 5,
+        "image": "/images/img5.jpg",
+        "alt": "The Joker"
+    },
+    {
+        "id": 6,
+        "image": "/images/img6.jpg",
+        "alt": "Harley Quinn"
+    },
+    {
+        "id": 7,
+        "image": "/images/img7.png",
+        "alt": "Deadshot" 
+    },
+    {
+        "id": 8,
+        "image": "/images/img8.jpg",
+        "alt": "Mr. Freeze"
+    },
+    {
+        "id": 9,
+        "image": "/images/img9.jpg",
+        "alt": "Penguin"
+    },
+    {
+        "id": 10,
+        "image": "/images/img10.jpg",
+        "alt": "The Riddler"
+    },
+    {
+        "id": 11,
+        "image": "/images/img11.jpg",
+        "alt": "Two Face"
+    },
+    {
+        "id": 12,
+        "image": "/images/img12.png",
+        "alt": "Hugo Strange"
+    }
+]

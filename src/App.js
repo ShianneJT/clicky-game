@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Wrapper from './components/Wrapper';
+import Header from './components/Header';
+import CharacterCard from './components/CharacterCard';
+import characters from './characters.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    state = {
+        characters
+    };
+
+    render() {
+        return (
+            <Wrapper>
+                <Header />
+                {this.state.characters.map(character => (
+                    <CharacterCard
+                        key={character.id}
+                        image={character.image}
+                    />
+                ))}
+            </Wrapper>
+        )
+    }
+
 }
 
 export default App;
