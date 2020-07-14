@@ -8,19 +8,42 @@ import characters from './characters.json';
 
 class App extends React.Component {
     state = {
-        characters
+        characters,
+        correctGuesses: 0,
+        topScore: 0,
     };
+
+    handleCardClick = id => {
+        // do stuff
+    }
+
+    handleCardShuffle = () => {
+
+    }
+
+    resetStates = () => {
+
+    }
+
+    // handle click
+    // handle card shuffle
+    // reset states
+
 
     render() {
         return (
             <Wrapper>
-                <Header />
-                {this.state.characters.map(character => (
-                    <CharacterCard
-                        key={character.id}
-                        image={character.image}
-                    />
-                ))}
+                <Header score={this.state.correctGuesses} topScore={this.state.topScore}/>
+                <div className="row">
+                    {this.state.characters.map(character => (
+                        <CharacterCard
+                            key={character.id}
+                            image={character.image}
+                            handleCardClick={this.handleCardClick}
+                        />
+                    ))}
+                </div>
+
             </Wrapper>
         )
     }
