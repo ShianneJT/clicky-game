@@ -65,16 +65,18 @@ class App extends React.Component {
         return (
             <Wrapper>
                 <Header score={this.state.score} highScore={this.state.highScore} clickMessage={this.state.clickMessage}/>
-                <div className="row">
-                    {this.state.characters.map((character) => {
-                        return <CharacterCard
-                            key={character.id}
-                            id={character.id}
-                            image={character.image}
-                            handleOnClick={this.handleImgClick}
-                        />
-                    })}
-                </div>
+                    <div class="card-holder">
+                        {this.state.characters.map((character) => (
+                            <CharacterCard
+                                key={character.id}
+                                id={character.id}
+                                image={character.image}
+                                handleOnClick={this.handleImgClick}
+                            />
+                        ))}
+                    </div>
+
+
             </Wrapper>
         );
     };

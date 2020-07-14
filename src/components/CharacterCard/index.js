@@ -1,10 +1,5 @@
 import React from 'react';
-
-const styles = {
-    img: {
-        height: 300
-    }
-}
+import './style.css';
 
 class CharacterCard extends React.Component {
 
@@ -14,9 +9,9 @@ class CharacterCard extends React.Component {
 
     render() {
         return (
-            <div className="col-lg-2">
+            <div className="card">
                 <div className="img-container" id={this.props.id}>
-                    <img src={this.props.image} alt={this.props.name} style={styles.img} onClick={this.handleImgClick}/>
+                    <img src={this.props.image} alt={this.props.name} onClick={this.handleImgClick}/>
                 </div>
             </div>
         );

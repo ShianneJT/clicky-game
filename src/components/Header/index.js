@@ -1,17 +1,19 @@
 import React from 'react';
+import './style.css';
 
 class Header extends React.Component {
-
     render() {
         return (
-            <div className="jumbotron">
-                <h1>Clicky Game!</h1>
-                <p>Score: {this.props.score}</p>
-                <p>High Score: {this.props.highScore}</p>
-                <p>{this.props.clickMessage}</p>
-            </div>
-        )
-    }
-}
+            <>
+            <div class="header"></div>
+            <nav class="navbar">
+                <h4>Clicky Game!</h4>
+                <h5>{this.props.clickMessage}</h5>
+                <h4 className="">Score: {this.props.score} || High Score: {this.props.highScore}</h4>
+            </nav>
+            </>
+        );
+    };
+};
 
 export default Header;
