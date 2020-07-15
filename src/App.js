@@ -15,27 +15,32 @@ class App extends React.Component {
     };
 
     handleImgClick = id => {
+        const cardHolder = document.querySelector('#card-holder');
+        cardHolder.classList.add('animate__animated', 'animate__bounceOutLeft');
+
+
         const clickedImg = this.state.characters.filter(character => character.id === id);
-        console.log('click')
-            if (clickedImg[0].clicked) {
-                console.log('Already clicked that one!');
-                this.setState({
-                    score: 0,
-                    clickMessage: 'Sorry, you already clicked that one! Please try again.'
-                });
+
+        if (clickedImg[0].clicked) {
+
+
+
+            this.setState({
+                score: 0,
+                clickMessage: 'Sorry, you already clicked that one! Please try again.'
+            });
             this.handleGameReset();
 
-            } else {
-                clickedImg[0].clicked = true;
-                this.setState({ score: this.state.score + 1}, () => {
-                    if(this.state.score > this.state.highScore) {
-                        this.setState({ highScore: this.state.score });
+        } else {
+            clickedImg[0].clicked = true;
+            this.setState({ score: this.state.score + 1 }, () => {
+                if (this.state.score > this.state.highScore) {
+                    this.setState({ highScore: this.state.score });
                 }
             });
-                this.setState({clickMessage: 'Good job! Keep going!'})
-                this.handleCardShuffle();
-            }
-
+            this.setState({ clickMessage: 'Good job! Keep going!' });
+            this.handleCardShuffle();
+        }
     }
 
     handleCardShuffle = () => {
@@ -47,7 +52,7 @@ class App extends React.Component {
             cards[j] = cards[i];
             cards[i] = temp;
         };
-            this.setState({ characters: cards });
+        this.setState({ characters: cards });
     };
 
     handleGameReset = () => {
@@ -64,23 +69,20 @@ class App extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Header score={this.state.score} highScore={this.state.highScore} clickMessage={this.state.clickMessage}/>
-                    <div class="card-holder">
-                        {this.state.characters.map((character) => (
-                            <CharacterCard
-                                key={character.id}
-                                id={character.id}
-                                image={character.image}
-                                handleOnClick={this.handleImgClick}
-                            />
-                        ))}
-                    </div>
-
-
+                <Header score={this.state.score} highScore={this.state.highScore} clickMessage={this.state.clickMessage} />
+                <div id="card-holder">
+                    {this.state.characters.map((character) => (
+                        <CharacterCard
+                            key={character.id}
+                            id={character.id}
+                            image={character.image}
+                            handleOnClick={this.handleImgClick}
+                        />
+                    ))}
+                </div>
             </Wrapper>
         );
     };
-
 };
 
 export default App;

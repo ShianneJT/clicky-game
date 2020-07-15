@@ -2,15 +2,15 @@ import React from 'react';
 import './style.css';
 
 class Header extends React.Component {
-    render() {
+    render () {
         return (
             <>
-            <div class="header"></div>
-            <nav class="navbar">
-                <h4>Clicky Game!</h4>
-                <h5>{this.props.clickMessage}</h5>
-                <h4 className="">Score: {this.props.score} || High Score: {this.props.highScore}</h4>
-            </nav>
+                <div className="header"></div>
+                <nav className="navbar">
+                    <h3>Clicky Game!</h3>
+                    <h3 className="clickMsg">{this.props.clickMessage}</h3>
+                    <h3 className="">Score: {this.props.score} | High Score: {this.props.highScore}</h3>
+                </nav>
             </>
         );
     };

@@ -1,13 +1,13 @@
 .header {
-    height: 280px;
-    padding: 0;
-    margin: 0;
-    background: url('/../images/batman.png') no-repeat;
-    background-position: center;
+  height: 280px;
+  padding: 0;
+  margin: 0;
+  background: url('/../images/batman.png') no-repeat;
+  background-position: center;
 }
 
 .navbar {
-    margin: 16px 0px;
-    padding: 20px 60px;
-    background-color: #444444;
+  margin: 16px;
+  padding: 20px 60px;
+  background-color: #767676;
 }
