@@ -7,7 +7,12 @@
 }
 
 .navbar {
-  margin: 16px;
+  margin: 22px 0;
   padding: 20px 60px;
   background-color: #767676;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.15);
+}
+
+.navbar > .score {
+  word-spacing: 5px;
 }

@@ -9,7 +9,7 @@ class Header extends React.Component {
                 <nav className="navbar">
                     <h3>Clicky Game!</h3>
                     <h3 className="clickMsg">{this.props.clickMessage}</h3>
-                    <h3 className="">Score: {this.props.score} | High Score: {this.props.highScore}</h3>
+                    <h3 className="score">Score: {this.props.score} &mdash; High Score: {this.props.highScore}</h3>
                 </nav>
             </>
         );
