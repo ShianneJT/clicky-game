@@ -16,15 +16,11 @@ class App extends React.Component {
 
     handleImgClick = id => {
         const cardHolder = document.querySelector('#card-holder');
-        cardHolder.classList.add('animate__animated', 'animate__bounceOutLeft');
-
-
+        cardHolder.classList.remove('shake');
         const clickedImg = this.state.characters.filter(character => character.id === id);
 
         if (clickedImg[0].clicked) {
-
-
-
+            cardHolder.classList.add('shake');
             this.setState({
                 score: 0,
                 clickMessage: 'Sorry, you already clicked that one! Please try again.'

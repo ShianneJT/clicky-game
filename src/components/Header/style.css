@@ -16,3 +16,7 @@
 .navbar > .score {
   word-spacing: 5px;
 }
+
+.navbar > .clickMsg {
+  color: #fedb01;
+}
