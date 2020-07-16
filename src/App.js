@@ -3,6 +3,7 @@ import './App.css';
 import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import CharacterCard from './components/CharacterCard';
+import Footer from './components/Footer';
 import characters from './characters.json';
 
 
@@ -16,27 +17,39 @@ class App extends React.Component {
 
     handleImgClick = id => {
         const cardHolder = document.querySelector('#card-holder');
+        const clickMsg = document.querySelector('#click-msg');
+        clickMsg.classList.remove();
         cardHolder.classList.remove('shake');
         const clickedImg = this.state.characters.filter(character => character.id === id);
-
+        // if clickedImg = true, send click message and reset the game
         if (clickedImg[0].clicked) {
             cardHolder.classList.add('shake');
             this.setState({
                 score: 0,
-                clickMessage: 'Sorry, you already clicked that one! Please try again.'
+                clickMessage: 'You clicked that one already!'
             });
             this.handleGameReset();
-
-        } else {
+        // if score is less than 11, set the state of the card to true (clicked), increment the current score by 1
+        } else if (this.state.score < 11 ) {
             clickedImg[0].clicked = true;
             this.setState({ score: this.state.score + 1 }, () => {
+                // if current score is higher than high score, update high score
                 if (this.state.score > this.state.highScore) {
                     this.setState({ highScore: this.state.score });
                 }
             });
             this.setState({ clickMessage: 'Good job! Keep going!' });
             this.handleCardShuffle();
-        }
+        // if this is the last card being clicked on, update states and reset game
+        } else {
+            clickedImg[0].clicked = true;
+            clickMsg.classList.add('animate__animated', 'animate__bounce');
+            this.setState({
+                score: 0,
+                highScore: 12,
+                clickMessage: 'You got them all! Play again?' });
+            this.handleGameReset();
+        };
     }
 
     handleCardShuffle = () => {
@@ -76,9 +89,10 @@ class App extends React.Component {
                         />
                     ))}
                 </div>
+                <Footer />
             </Wrapper>
         );
-    };
-};
+    }
+}
 
 export default App;
